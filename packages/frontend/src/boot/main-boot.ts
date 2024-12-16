@@ -384,7 +384,7 @@ export async function mainBoot() {
 			if ($i == null) return;
 			post();
 		},
-		'd': () => {
+		'l': () => {
 			defaultStore.set('darkMode', !defaultStore.state.darkMode);
 		},
 		's': () => {
