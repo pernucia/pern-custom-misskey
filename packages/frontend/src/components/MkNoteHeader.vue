@@ -4,6 +4,9 @@ SPDX-License-Identifier: AGPL-3.0-only
 -->
 
 <template>
+<div v-if="note.user.badgeRoles" :class="$style.badgeRoles">
+	<img v-for="(role, i) in note.user.badgeRoles" :key="i" v-tooltip="role.name" :class="$style.badgeRole" :src="role.iconUrl!"/>
+</div>
 <header :class="$style.root">
 	<div v-if="mock" :class="$style.name">
 		<MkUserName :user="note.user"/>
@@ -13,9 +16,6 @@ SPDX-License-Identifier: AGPL-3.0-only
 	</MkA>
 	<div v-if="note.user.isBot" :class="$style.isBot">bot</div>
 	<div :class="$style.username"><MkAcct :user="note.user"/></div>
-	<div v-if="note.user.badgeRoles" :class="$style.badgeRoles">
-		<img v-for="(role, i) in note.user.badgeRoles" :key="i" v-tooltip="role.name" :class="$style.badgeRole" :src="role.iconUrl!"/>
-	</div>
 	<div :class="$style.info">
 		<div v-if="mock">
 			<MkTime :time="note.createdAt" colored/>
@@ -96,7 +96,7 @@ const mock = inject<boolean>('mock', false);
 }
 
 .badgeRoles {
-	margin: 0 .5em 0 0;
+	margin: 0 0 0.2em 0;
 }
 
 .badgeRole {
