@@ -724,9 +724,11 @@ defineExpose({
 					contain: strict;
 					border-radius: 4px;
 					font-size: 24px;
+					transition: all 0.2s linear;
 
 					&:hover {
 						background: rgba(0, 0, 0, 0.05);
+						transform: scale(1.5);
 					}
 
 					&:active {
